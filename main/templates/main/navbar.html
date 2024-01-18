@@ -1,0 +1,53 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg text-light bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url "main:home" %}">
+            <img src="{% static 'Z-logo.png' %}" width="30" height="30">
+        </a>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "main:digi-meter" %}">Digitale meter</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url "main:tegenw-tijd" %}">vervoeging tegenwoordige tijd</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "main:diepvries" %}">Diepvries overzicht</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "users:logout" %}">Logout</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated == False %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "users:login" %}">Login</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+</nav>
