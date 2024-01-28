@@ -26,9 +26,9 @@ def diepvries_page(request):
     template = "main/diepvries.html"
     inhoud = Diepvries.objects.all().order_by("datum").values()
 
-    if request.POST.get("update_but")== "update":
+    if request.method == "POST" and request.POST["potnummer"] != "":
         try:
-            x=Diepvries.objects.get(pot_nummer=request.POST["pot"])
+            x=Diepvries.objects.get(pot_nummer=request.POST["potnummer"])
             x.omschrijving = request.POST["omschrijving"]
             x.personen = request.POST["personen"]
         except:

@@ -1,71 +1,86 @@
 {% extends "main/base.html" %}
 
 {% block title %}
-    <h1 class="text-center text-info">diepvries</h1>
+    <h1 class="text-center text-warning-emphasis">diepvries</h1>
 {% endblock title %}
+{% block precontent %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+            </div>
 
+            <div class="col">
+            </div>
+
+            <div class="col-1">
+                            <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    +
+                </button>
+                
+                <!-- Modal -->
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Pot veranderen</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post">
+                                {%csrf_token%}
+                            <div class="container">
+                                
+                                <div class="input-group">
+                                    <span class="input-group-text">potnummer en personen</span>
+                                    <input type="text" aria-label="potnummer" name="potnummer" value="" placeholder="potnummer" class="form-control">
+                                    <input type="text" aria-label="personen" name="personen" value="" placeholder="personen" class="form-control">
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="input-group">
+                                    <span class="input-group-text">First and last name</span>
+                                    <input type="text" aria-label="omschrijving" name="omschrijving" value="" placeholder="omschrijving" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock precontent %}
 {% block content %}
 <ul>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-              <h2 class="text-warning text-center">pot_nummer</h2>
-            </div>
-            <div class="col-sm-3">
-              <h2 class="text-warning text-center">omschrijving</h2>
-            </div>
-            <div class="col-sm-3">
-              <h2 class="text-warning text-center">personen</h2>
-            </div>
-            <div class="col-sm-3">
-              <h2 class="text-warning text-center">datum van invriezen</h2>
-            </div>
-        </div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><h3 class="text-success-emphasis">pot_nummer</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">omschrijving</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">personen</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">datum van invriezen</h3></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for x in inhoud %}
+                <tr>
+                    <th scope="row">{{x.pot_nummer}}</th>
+                    <td>{{x.omschrijving}}</td>
+                    <td>{{x.personen}}</td>
+                    <td>{{x.datum}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
     </div>
-    <div class="container">
-        <form method="post">
-            {%csrf_token%}
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="input-group">
-                        <button type="submit" name = "update_but" value = "update" class="btn btn-primary">update</button>
-                        <input type="text" class="form-control" name="pot", id="pot">
-                    </div>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="omschrijving", id="omschrijving">
-                    </div>
-                </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="personen", id="personen">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    {% for x in inhoud %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <p class="text-center">{{x.pot_nummer}}</p>
-                </div>
-                <div class="col-sm-3">
-                    <p class="text-center">{{x.omschrijving}}</p>
-                </div>
-                <div class="col-sm-3">
-                    <p class="text-center">{{x.personen}}</p>
-                </div>
-                <div class="col-sm-3">
-                    <p class="text-center">{{x.datum}}</p>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
 </ul>
 {% endblock content %}

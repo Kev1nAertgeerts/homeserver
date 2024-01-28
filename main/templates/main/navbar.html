@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg text-light bg-primary">
+<nav class="navbar navbar-expand-lg text-light bg-success">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url "main:home" %}">
             <img src="{% static 'Z-logo.png' %}" width="30" height="30">
@@ -9,10 +9,10 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url "main:digi-meter" %}">Digitale meter</a>
+            <a class="nav-link text-white" href="{% url "main:digi-meter" %}">Digitale meter</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu">
@@ -24,7 +24,7 @@
           </li>
           {% endif %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url "main:diepvries" %}">Diepvries overzicht</a>
+            <a class="nav-link text-white" href="{% url "main:diepvries" %}">Diepvries overzicht</a>
           </li>
         </ul>
       </div>
@@ -39,12 +39,12 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url "users:logout" %}">Logout</a>
+              <a class="nav-link text-white" href="{% url "users:logout" %}">Logout</a>
             </li>
             {% endif %}
             {% if user.is_authenticated == False %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url "users:login" %}">Login</a>
+              <a class="nav-link text-white" href="{% url "users:login" %}">Login</a>
             </li>
           {% endif %}
         </ul>
