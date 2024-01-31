@@ -34,6 +34,7 @@ def diepvries_page(request):
         except:
             x=Diepvries(pot_nummer=request.POST["pot"], omschrijving = request.POST["omschrijving"], personen = request.POST["personen"])
         x.save()
+        redirect("main:diepvries")
         
     context = {"inhoud":inhoud}
     return render(request=request, context=context, template_name=template)
