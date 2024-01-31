@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'hexabot.apps.HexabotConfig',
+    'bitvavo.apps.BitvavoConfig',
     
 ]
 
