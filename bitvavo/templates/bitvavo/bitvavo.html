@@ -3,5 +3,34 @@
 {% block title %}
 <h1 class="text-center text-warning-emphasis">Bitvavo</h1>
 {% endblock title %}
+
 {% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Market</th>
+                        <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for crypto in pricelist %}
+                            <tr>
+                            <td>{{crypto.market}}</td>
+                            <td>€ {{crypto.price}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                {{ plot_available | safe}}
+            </div>
+            <div class="col">
+                {{ plot_inorder | safe}}
+            </div>
+        </div>
+    </div>
 {% endblock content %}
