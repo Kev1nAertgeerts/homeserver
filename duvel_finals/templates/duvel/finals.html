@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+    <h1 class="text-center text-warning-emphasis">Duvel Collection</h1>
+{% endblock title %}
+
+{% block precontent %}
+{% endblock precontent %}
+
+{% block content %}
+<ul>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col"><h3 class="text-success-emphasis">naam</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">jaar</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">foto</h3></th>
+                <th scope="col"><h3 class="text-success-emphasis">geschatte waarde</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for glas in collection %}
+                    <tr>
+                    <th scope="row">{{glas.name}}</th>
+                    <td>{{glas.year}}</td>
+                    <td>{{glas.photo}}</td>
+                    <td>{{glas.price}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</ul>
+{% endblock content %}
