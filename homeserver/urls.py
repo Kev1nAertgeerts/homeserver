@@ -23,4 +23,5 @@ urlpatterns = [
     path('users/', include("users.urls")),
     path('hexabot/', include("hexabot.urls")),
     path('bitvavo/', include("bitvavo.urls")),
+    path('duvel-finals/', include("duvel_finals.urls")),
 ]

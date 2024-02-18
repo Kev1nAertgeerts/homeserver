@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'hexabot.apps.HexabotConfig',
     'bitvavo.apps.BitvavoConfig',
+    'duvel_finals.apps.DuvelFinalsConfig',
     
 ]
 
