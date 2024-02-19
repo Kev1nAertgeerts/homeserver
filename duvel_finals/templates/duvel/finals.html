@@ -5,6 +5,55 @@
 {% endblock title %}
 
 {% block precontent %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+
+            <div class="col">
+            </div>
+
+            <div class="col-1">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    +
+                </button>
+  
+                <div class="modal" id="exampleModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <h5 class="modal-title">Voeg final toe</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="input-group">
+                                            <span class="input-group-text">Name / Year</span>
+                                            <input type="text" aria-label="Name" name = "name" value="" class="form-control">
+                                            <input type="text" aria-label="Year" name="year" value="" class="form-control">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text">foto locatie</span>
+                                            <input type="text" aria-label="foto-path" name="foto" value="" class="form-control">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text">geschatte waarde</span>
+                                            <input type="text" aria-label="waarde" name="waarde" value="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock precontent %}
 
 {% block content %}
