@@ -1,0 +1,17 @@
+asgiref==3.7.2
+certifi==2024.2.2
+cffi==1.16.0
+charset-normalizer==3.3.2
+cryptography==42.0.3
+Django==5.0.2
+idna==3.6
+packaging==23.2
+plotly==5.19.0
+pycparser==2.21
+python_bitvavo_api==1.4.0
+requests==2.31.0
+setuptools==69.1.0
+sqlparse==0.4.4
+tenacity==8.2.3
+urllib3==2.2.1
+websocket-client==1.7.0
